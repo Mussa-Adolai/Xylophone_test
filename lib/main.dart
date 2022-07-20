@@ -1,4 +1,4 @@
-// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors
+// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, avoid_print
 
 import 'package:flutter/material.dart';
 import 'package:assets_audio_player/assets_audio_player.dart';
@@ -14,10 +14,14 @@ class XylophoneApp extends StatelessWidget {
           child: Center(
             child: TextButton(
               onPressed: () {
-                final assetsAudioPlayer = AssetsAudioPlayer();
-                assetsAudioPlayer.open(
-                  Audio("assets/audio/note1.wav"),
-                );
+                try {
+                  final assetsAudioPlayer = AssetsAudioPlayer();
+                  assetsAudioPlayer.open(
+                    Audio("assets/audio/note1.wav"),
+                  );
+                } catch (ex) {
+                  print('error');
+                }
               },
               child: Text('Click Me'),
             ),
