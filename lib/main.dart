@@ -14,14 +14,10 @@ class XylophoneApp extends StatelessWidget {
           child: Center(
             child: TextButton(
               onPressed: () {
-                try {
-                  final assetsAudioPlayer = AssetsAudioPlayer();
-                  assetsAudioPlayer.open(
-                    Audio("assets/audio/note1.wav"),
-                  );
-                } catch (ex) {
-                  print('error');
-                }
+                final assetsAudioPlayer = AssetsAudioPlayer();
+                assetsAudioPlayer.open(
+                  Audio("assets/audio/note1.wav"),
+                );
               },
               child: Text('Click Me'),
             ),
